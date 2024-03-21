@@ -5,11 +5,20 @@ import { QuizContext } from '../context/quiz.jsx'
 
 const Questions = () => {
 
-  const [quizState, dispatch] = useContext(QuizContext);
+  const [quizState, dispatch] = useContext(QuizContext)
+  const currentQuestion = quizState.questions[quizState.currentQuestion]
 
-  console.log(quizState);
   return (
-    <div>Questions</div>
+    <div id="question">
+      <p>
+        Pergunta {quizState.currentQuestion + 1} de {quizState.questions.length}
+      </p>
+      <h2>{currentQuestion.question}</h2>
+      <div id="options-container">
+        <p>opções</p>
+      </div>
+      <button>Continuar</button>
+    </div>
   )
 }
 
